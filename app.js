@@ -58,17 +58,18 @@
 
   function renderMeta(session) {
     return [
-      pill((session.day || "Tuesday") + (session.time ? " / " + session.time : "")),
+      session.group ? pill(session.group) : "",
+      pill(weekdayLabel(session) + (session.time ? " / " + session.time : "")),
       pill(session.company || "Company TBD")
     ].join("");
   }
 
   function renderLinks(session) {
-    const zoomUrl = zoom.slots && zoom.slots[session.zoomSlot || session.time];
+    const zoomLinks = getZoomLinks(session);
     const links = [];
 
-    if (zoomUrl) {
-      links.push(linkButton(zoomUrl, "Open Zoom"));
+    for (const zoomLink of zoomLinks) {
+      links.push(linkButton(zoomLink.url, zoomLink.label));
     }
 
     if (session.presentationUrl) {
@@ -109,6 +110,26 @@
   function dateDay(session) {
     if (session.date) return formatDate(session.date, { day: "2-digit" });
     return "TBD";
+  }
+
+  function weekdayLabel(session) {
+    if (session.date) return formatDate(session.date, { weekday: "long" });
+    return session.day || "Tuesday";
+  }
+
+  function getZoomLinks(session) {
+    const slots = session.zoomSlots || inferZoomSlots(session);
+
+    return slots
+      .map((slot) => ({ label: "Zoom " + slot, url: zoom.slots && zoom.slots[slot] }))
+      .filter((entry) => entry.url);
+  }
+
+  function inferZoomSlots(session) {
+    if (session.zoomSlot) return [session.zoomSlot];
+    if (/6am\s*\/\s*10am/i.test(session.time || "")) return ["6am ET", "10am ET"];
+    if (/6am/i.test(session.time || "")) return ["6am ET"];
+    return ["10am ET"];
   }
 
   function getTiming(session) {
