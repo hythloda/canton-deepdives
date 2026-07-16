@@ -64,8 +64,8 @@ window.DEEPDIVES_DATA = {
       day: "Tuesday",
       time: "10am ET",
       zoomSlot: "10am ET",
-      presentationUrl: "",
-      recordingUrl: "",
+      presentationUrl: "https://docs.google.com/presentation/d/1wpnRrzdaZZS8sug710XricxB124uk_CFwtIqE2NO-1A/edit?slide=id.g3d69844f64f_1_1106#slide=id.g3d69844f64f_1_1106",
+      recordingUrl: "https://us06web.zoom.us/rec/share/CzNoSrY_LrDHPkSZE6aXp6Cy5i0n3u4ypXwFCwqW2mgzAm2WPvfyiHdA9YreloSb.vW-CzSZbpj8JryG0",
       recordingPasscode: "$LLuWE9y",
       valid: true
     }
