@@ -2,16 +2,11 @@
   const data = window.DEEPDIVES_DATA || { sessions: [] };
   const sessions = Array.isArray(data.sessions) ? data.sessions : [];
   const zoom = data.zoom || { passcode: "626262", slots: {} };
-  const grid = document.getElementById("deepdives-grid");
-  const calendar = document.getElementById("calendar-list");
+  const list = document.getElementById("session-list");
   const empty = document.getElementById("empty-state");
-  const calendarEmpty = document.getElementById("calendar-empty-state");
   const search = document.getElementById("search");
   const tabs = document.querySelectorAll("[data-view]");
-  const views = {
-    cards: document.getElementById("cards-view"),
-    calendar: document.getElementById("calendar-view")
-  };
+  let activeView = "coming";
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => setView(tab.dataset.view));
@@ -21,42 +16,39 @@
   render();
 
   function setView(view) {
+    activeView = view;
+
     tabs.forEach((tab) => {
       const isActive = tab.dataset.view === view;
       tab.classList.toggle("active", isActive);
       tab.setAttribute("aria-selected", String(isActive));
     });
 
-    Object.entries(views).forEach(([key, element]) => {
-      element.classList.toggle("active", key === view);
-    });
+    render();
   }
 
   function render() {
     const term = search.value.trim().toLowerCase();
-    const filtered = sessions.filter((session) => searchableText(session).includes(term));
-    const tuesdaySessions = filtered.filter((session) => (session.day || "Tuesday").toLowerCase() === "tuesday");
+    const filtered = sessions
+      .filter((session) => searchableText(session).includes(term))
+      .filter((session) => getTiming(session) === activeView)
+      .sort(sortSessions);
 
-    grid.innerHTML = filtered.map(renderCard).join("");
-    calendar.innerHTML = tuesdaySessions.map(renderCalendarRow).join("");
+    list.innerHTML = filtered.map(renderSession).join("");
     empty.hidden = filtered.length > 0;
-    calendarEmpty.hidden = tuesdaySessions.length > 0;
   }
 
-  function renderCard(session) {
+  function renderSession(session) {
     return (
-      '<article class="card">' +
-        '<div class="card-date" aria-label="' + escapeAttr(dateLabel(session)) + '">' +
+      '<article class="session-card">' +
+        '<div class="date-icon" aria-label="' + escapeAttr(dateLabel(session)) + '">' +
           '<span>' + escapeHtml(dateMonth(session)) + '</span>' +
           '<strong>' + escapeHtml(dateDay(session)) + '</strong>' +
         '</div>' +
-        '<div class="card-body">' +
-          '<div class="meta">' +
-            pill(session.time || "Time TBD") +
-            pill(session.company || "Company TBD") +
-          '</div>' +
+        '<div class="session-main">' +
+          '<div class="meta">' + renderMeta(session) + '</div>' +
           '<h2>' + escapeHtml(session.title) + '</h2>' +
-          '<p class="speaker">' + escapeHtml(session.speaker || "Speaker TBD") + '</p>' +
+          '<p class="speaker-line">' + escapeHtml(session.speaker || "Speaker TBD") + '</p>' +
           '<p class="company">' + escapeHtml([session.role, session.company].filter(Boolean).join(", ")) + '</p>' +
           renderLinks(session) +
         '</div>' +
@@ -64,25 +56,11 @@
     );
   }
 
-  function renderCalendarRow(session) {
-    return (
-      '<article class="calendar-row">' +
-        '<div class="card-date" aria-label="' + escapeAttr(dateLabel(session)) + '">' +
-          '<span>' + escapeHtml(dateMonth(session)) + '</span>' +
-          '<strong>' + escapeHtml(dateDay(session)) + '</strong>' +
-        '</div>' +
-        '<div class="calendar-main">' +
-          '<div class="meta">' +
-            pill("Tuesday") +
-            pill(session.time || "Time TBD") +
-            pill("Passcode " + zoom.passcode) +
-          '</div>' +
-          '<h2>' + escapeHtml(session.title) + '</h2>' +
-          '<p>' + escapeHtml([session.speaker, session.role, session.company].filter(Boolean).join(", ")) + '</p>' +
-          renderLinks(session) +
-        '</div>' +
-      '</article>'
-    );
+  function renderMeta(session) {
+    return [
+      pill((session.day || "Tuesday") + (session.time ? " / " + session.time : "")),
+      pill(session.company || "Company TBD")
+    ].join("");
   }
 
   function renderLinks(session) {
@@ -94,16 +72,20 @@
     }
 
     if (session.presentationUrl) {
-      links.push(linkButton(session.presentationUrl, "Open presentation"));
+      links.push(linkButton(session.presentationUrl, "Presentation"));
     }
 
     if (session.recordingUrl) {
-      links.push(linkButton(session.recordingUrl, "Open recording"));
+      links.push(linkButton(session.recordingUrl, "Recording"));
     }
 
-    links.push('<span class="passcode">Passcode ' + escapeHtml(zoom.passcode) + '</span>');
+    links.push('<span class="passcode">Meeting passcode ' + escapeHtml(zoom.passcode) + '</span>');
 
-    return '<div class="card-actions">' + links.join("") + '</div>';
+    if (session.recordingUrl && session.recordingPasscode) {
+      links.push('<span class="passcode recording-code">Recording passcode ' + escapeHtml(session.recordingPasscode) + '</span>');
+    }
+
+    return '<div class="session-actions">' + links.join("") + '</div>';
   }
 
   function linkButton(url, label) {
@@ -127,6 +109,18 @@
   function dateDay(session) {
     if (session.date) return formatDate(session.date, { day: "2-digit" });
     return "TBD";
+  }
+
+  function getTiming(session) {
+    if (!session.date) return "coming";
+    const sessionDate = new Date(session.date + "T23:59:59");
+    return sessionDate < new Date() ? "past" : "coming";
+  }
+
+  function sortSessions(left, right) {
+    const leftTime = left.date ? new Date(left.date + "T12:00:00").getTime() : Number.MAX_SAFE_INTEGER;
+    const rightTime = right.date ? new Date(right.date + "T12:00:00").getTime() : Number.MAX_SAFE_INTEGER;
+    return activeView === "past" ? rightTime - leftTime : leftTime - rightTime;
   }
 
   function formatDate(value, options) {

@@ -19,7 +19,8 @@ window.DEEPDIVES_DATA = {
       time: "10am ET",
       zoomSlot: "10am ET",
       presentationUrl: "",
-      recordingUrl: ""
+      recordingUrl: "",
+      recordingPasscode: ""
     },
     {
       title: "dApp API & SDK",
@@ -31,7 +32,8 @@ window.DEEPDIVES_DATA = {
       time: "TBD",
       zoomSlot: "10am ET",
       presentationUrl: "",
-      recordingUrl: ""
+      recordingUrl: "",
+      recordingPasscode: ""
     },
     {
       title: "Wallet Gateway",
@@ -43,7 +45,8 @@ window.DEEPDIVES_DATA = {
       time: "TBD",
       zoomSlot: "10am ET",
       presentationUrl: "",
-      recordingUrl: ""
+      recordingUrl: "",
+      recordingPasscode: ""
     }
   ]
 };
