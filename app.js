@@ -78,10 +78,6 @@
         links.push(linkButton(session.recordingUrl, "Recording"));
       }
 
-      if (session.recordingPasscode) {
-        links.push('<span class="passcode recording-code">Recording passcode ' + escapeHtml(session.recordingPasscode) + '</span>');
-      }
-
       return '<div class="session-actions">' + links.join("") + '</div>';
     }
 

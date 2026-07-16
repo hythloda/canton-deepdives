@@ -65,8 +65,8 @@ window.DEEPDIVES_DATA = {
       time: "10am ET",
       zoomSlot: "10am ET",
       presentationUrl: "https://docs.google.com/presentation/d/1wpnRrzdaZZS8sug710XricxB124uk_CFwtIqE2NO-1A/edit?slide=id.g3d69844f64f_1_1106#slide=id.g3d69844f64f_1_1106",
-      recordingUrl: "https://us06web.zoom.us/rec/share/CzNoSrY_LrDHPkSZE6aXp6Cy5i0n3u4ypXwFCwqW2mgzAm2WPvfyiHdA9YreloSb.vW-CzSZbpj8JryG0",
-      recordingPasscode: "$LLuWE9y",
+      recordingUrl: "https://us06web.zoom.us/rec/share/iApvdajrpvIEfz8tLRs8-FIyioqZtcS1Wx6GWCFlBbboVdXLab2a4lw2r-6z6vkr.kRABc-htCapQ-Xcc",
+      recordingPasscode: "",
       valid: true
     }
   ]
