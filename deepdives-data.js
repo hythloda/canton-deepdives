@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-07-16T23:11:10.189Z",
+  "updatedAt": "2026-07-16T23:15:55.171Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "passcode": "626262",
@@ -68,7 +68,7 @@ window.DEEPDIVES_DATA = {
       "time": "10am ET",
       "zoomSlot": "10am ET",
       "presentationUrl": "https://docs.google.com/presentation/d/1wpnRrzdaZZS8sug710XricxB124uk_CFwtIqE2NO-1A/edit?slide=id.g3d69844f64f_1_1106#slide=id.g3d69844f64f_1_1106",
-      "recordingUrl": "https://us06web.zoom.us/rec/share/iApvdajrpvIEfz8tLRs8-FIyioqZtcS1Wx6GWCFlBbboVdXLab2a4lw2r-6z6vkr.kRABc-htCapQ-Xcc",
+      "recordingUrl": "https://us06web.zoom.us/rec/share/2EFKAn-ShuWDIzsx9xQ2pbS2q1qeLvpwLAyxcw2_rXLt_2jddxNgwZUT9i-wsQtK.ttnWt7LM9ZmXjxsq",
       "recordingPasscode": "",
       "valid": true
     }
