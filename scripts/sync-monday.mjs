@@ -116,7 +116,7 @@ function mapColumns(columns) {
 
 function toSession(item, columns) {
   const values = Object.fromEntries((item.column_values || []).map((value) => [value.id, value]));
-  const group = item.group?.title || "";
+  const group = normalizeGroup(item.group?.title || "");
   const speakerCompany = cellText(values[columns.nameSpeakerCompany]);
   const speakerParts = parseSpeakerCompany(speakerCompany);
   const time = normalizeTime(cellText(values[columns.time]));
@@ -142,7 +142,7 @@ function toSession(item, columns) {
 
 function isValid(value, group) {
   if (!value) {
-    return ["coming soon", "past"].includes(normalize(group));
+    return ["coming soon", "future", "past"].includes(normalize(group));
   }
 
   const raw = `${value.text || ""} ${value.value || ""}`.toLowerCase();
@@ -227,6 +227,14 @@ function parseJson(value) {
 
 function normalize(value) {
   return String(value || "").trim().toLowerCase();
+}
+
+function normalizeGroup(value) {
+  const normalized = normalize(value);
+  if (normalized === "future") return "Coming Soon";
+  if (normalized === "coming soon") return "Coming Soon";
+  if (normalized === "past") return "Past";
+  return String(value || "").trim();
 }
 
 async function readCurrentData() {
