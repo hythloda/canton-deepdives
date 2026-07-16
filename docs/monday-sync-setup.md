@@ -63,31 +63,27 @@ Keep this copied token ready for step 4. Do not add this token to GitHub reposit
 
 The Worker uses this token only to call GitHub's `repository_dispatch` endpoint, which starts the GitHub Action.
 
-## 4. Deploy the Cloudflare Worker Webhook
+## 4. Configure the Cloudflare Worker Webhook
 
-Use `workers/monday-github-dispatch.js` as a separate Cloudflare Worker whose only job is to receive Monday webhook calls and trigger GitHub.
+The main `canton-deepdives` Cloudflare Worker now serves both the static site and the Monday webhook.
 
-Dashboard setup:
+After GitHub deploys the latest repo commit, use this URL for Monday:
 
-1. Open Cloudflare.
-2. Go to Workers & Pages.
-3. Click Create application.
-4. Choose Worker.
-5. Name it something like `canton-deepdives-monday-webhook`.
-6. Deploy the starter Worker.
-7. Open the Worker, then click Edit code.
-8. Replace the starter code with the contents of `workers/monday-github-dispatch.js`.
-9. Click Deploy.
+```text
+https://canton-deepdives.canton-foundation.workers.dev/?secret=YOUR_LONG_RANDOM_SECRET
+```
 
 Add the GitHub token to Cloudflare:
 
-1. Open the `canton-deepdives-monday-webhook` Worker in Cloudflare.
-2. Go to Settings > Variables and secrets.
-3. Click Add.
-4. Choose Secret.
-5. Name: `GITHUB_DISPATCH_TOKEN`
-6. Value: paste the GitHub fine-grained token from step 3.
-7. Save.
+1. Open Cloudflare.
+2. Go to Workers & Pages.
+3. Open `canton-deepdives`.
+4. Go to Settings > Variables and secrets.
+5. Click Add.
+6. Choose Secret.
+7. Name: `GITHUB_DISPATCH_TOKEN`
+8. Value: paste the GitHub fine-grained token from step 3.
+9. Save.
 
 Add a webhook secret to Cloudflare:
 
@@ -98,7 +94,7 @@ Add a webhook secret to Cloudflare:
    ```
 
 2. Copy that random string.
-3. In the same Cloudflare Worker, go to Settings > Variables and secrets.
+3. In the same `canton-deepdives` Worker, go to Settings > Variables and secrets.
 4. Click Add.
 5. Choose Secret.
 6. Name: `MONDAY_WEBHOOK_SECRET`
@@ -110,7 +106,7 @@ This `MONDAY_WEBHOOK_SECRET` is not from Monday or GitHub. It is just a shared p
 The Monday webhook URL should include the secret as a query param:
 
 ```text
-https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev/?secret=YOUR_LONG_RANDOM_SECRET
+https://canton-deepdives.canton-foundation.workers.dev/?secret=YOUR_LONG_RANDOM_SECRET
 ```
 
 Use the same random string you saved as `MONDAY_WEBHOOK_SECRET`.

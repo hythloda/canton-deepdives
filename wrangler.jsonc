@@ -1,7 +1,10 @@
 {
   "name": "canton-deepdives",
+  "main": "workers/site-worker.js",
   "compatibility_date": "2026-07-16",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": true
   }
 }

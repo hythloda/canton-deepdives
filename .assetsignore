@@ -1,0 +1,9 @@
+.git
+.github
+docs
+scripts
+workers
+.assetsignore
+.gitignore
+README.md
+wrangler.jsonc
