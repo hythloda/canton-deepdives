@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canton Deep Dives</title>
+  <meta name="description" content="Canton Network deep-dive calendar and session index.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="page-head">
+      <div>
+        <p class="eyebrow">Canton Network</p>
+        <h1>Deep Dives</h1>
+      </div>
+      <a class="source-link" href="https://view.monday.com/18422413776-64ff01c1e74f9ed9aa5f27c4198f5a43?r=use1&amp;is_sharable_link=true" target="_blank" rel="noopener">Open Monday board</a>
+    </header>
+
+    <section class="summary-bar" aria-label="Deep dive summary">
+      <div>
+        <span class="summary-value" id="session-count">0</span>
+        <span class="summary-label">featured sessions</span>
+      </div>
+      <div>
+        <span class="summary-value" id="speaker-count">0</span>
+        <span class="summary-label">known speakers</span>
+      </div>
+      <div>
+        <span class="summary-value">Live</span>
+        <span class="summary-label">Monday calendar</span>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Deep dive controls">
+      <div class="tabs" role="tablist" aria-label="Views">
+        <button class="tab active" type="button" data-view="cards" role="tab" aria-selected="true">Index</button>
+        <button class="tab" type="button" data-view="calendar" role="tab" aria-selected="false">Calendar</button>
+      </div>
+      <label class="search">
+        <span>Search</span>
+        <input id="search" type="search" placeholder="Topic, speaker, company">
+      </label>
+    </section>
+
+    <section id="cards-view" class="view active" aria-label="Session index">
+      <div id="deepdives-grid" class="deepdives-grid"></div>
+      <div id="empty-state" class="empty-state" hidden>
+        <p>No deep dives match this search.</p>
+      </div>
+    </section>
+
+    <section id="calendar-view" class="view" aria-label="Live Monday calendar">
+      <div class="embed-shell">
+        <iframe
+          title="Canton Deep Dives Monday calendar"
+          src="https://view.monday.com/embed/18422413776-64ff01c1e74f9ed9aa5f27c4198f5a43?is_sharable_link=true&amp;r=use1"
+          loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p>Source data is served from the public Canton Foundation Monday board.</p>
+    </footer>
+  </main>
+
+  <script src="deepdives-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
