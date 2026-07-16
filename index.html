@@ -17,18 +17,42 @@
       <a class="source-link" href="https://view.monday.com/18422413776-64ff01c1e74f9ed9aa5f27c4198f5a43?r=use1&amp;is_sharable_link=true" target="_blank" rel="noopener">Open Monday board</a>
     </header>
 
-    <section class="summary-bar" aria-label="Deep dive summary">
-      <div>
-        <span class="summary-value" id="session-count">0</span>
-        <span class="summary-label">featured sessions</span>
+    <section class="meeting-panel" aria-label="Meeting details">
+      <div class="meeting-info">
+        <p class="section-kicker">Meeting Date/Time/Zoom</p>
+        <h2>Every Tuesday</h2>
+        <div class="meeting-actions">
+          <a class="action-link primary" href="https://us06web.zoom.us/j/86997555431?pwd=mOSAiK6394EZmaRHuQ0FP14odE56rv.1" target="_blank" rel="noopener">Join 6am ET Zoom</a>
+          <a class="action-link primary" href="https://us06web.zoom.us/j/82843970226?pwd=u8lW5dsbqa1YlmRrrYv9PJmV5nuYlD.1" target="_blank" rel="noopener">Join 10am ET Zoom</a>
+          <a class="action-link" href="https://forum.canton.network/" target="_blank" rel="noopener">Discussion forum</a>
+        </div>
       </div>
-      <div>
-        <span class="summary-value" id="speaker-count">0</span>
-        <span class="summary-label">known speakers</span>
-      </div>
-      <div>
-        <span class="summary-value">Live</span>
-        <span class="summary-label">Monday calendar</span>
+      <dl class="meeting-list">
+        <div>
+          <dt>Passcode</dt>
+          <dd>626262</dd>
+        </div>
+        <div>
+          <dt>Access issues</dt>
+          <dd><a href="mailto:operations@canton.foundation">operations@canton.foundation</a></dd>
+        </div>
+        <div>
+          <dt>Subscribe</dt>
+          <dd><a href="https://lists.sync.global/g/cn-deep-dives" target="_blank" rel="noopener">cn-deep-dives group</a></dd>
+        </div>
+        <div>
+          <dt>Speaker form</dt>
+          <dd><a href="https://wkf.ms/4wbP4Cq" target="_blank" rel="noopener">Submit your information</a></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="intro-panel" aria-label="Introduction">
+      <p class="section-kicker">Introduction</p>
+      <div class="intro-copy">
+        <p>The Canton Network Deep Dive series is a public meeting place for technical presentations about the canton-network open source projects. Its scope is all current and confirmed upcoming repositories under <a href="https://github.com/canton-network" target="_blank" rel="noopener">github.com/canton-network</a>.</p>
+        <p>Each week has a single presentation from one or more contributors. Presentations are expected to run 30-45 minutes, followed by a general AMA session for the core contributors. Questions should be scoped to the canton-network OSS repositories and will be moderated each week.</p>
+        <p>Two weekly time slots are reserved for a globally distributed contributor network: 6am US ET and 10am US ET. The default is 10am ET, but speakers may request the 6am ET slot instead. All presentations will be recorded and made public.</p>
       </div>
     </section>
 
@@ -50,17 +74,15 @@
       </div>
     </section>
 
-    <section id="calendar-view" class="view" aria-label="Live Monday calendar">
-      <div class="embed-shell">
-        <iframe
-          title="Canton Deep Dives Monday calendar"
-          src="https://view.monday.com/embed/18422413776-64ff01c1e74f9ed9aa5f27c4198f5a43?is_sharable_link=true&amp;r=use1"
-          loading="lazy"></iframe>
+    <section id="calendar-view" class="view" aria-label="Tuesday calendar">
+      <div id="calendar-list" class="calendar-list"></div>
+      <div id="calendar-empty-state" class="empty-state" hidden>
+        <p>No Tuesday sessions match this search.</p>
       </div>
     </section>
 
     <footer class="page-footer">
-      <p>Source data is served from the public Canton Foundation Monday board.</p>
+      <p>Source data is mirrored from the public Canton Foundation Monday board.</p>
     </footer>
   </main>
 
