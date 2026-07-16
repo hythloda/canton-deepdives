@@ -231,10 +231,9 @@ function normalize(value) {
 
 async function readCurrentData() {
   const source = await readFile("deepdives-data.js", "utf8");
-  const json = source
-    .replace(/^window\.DEEPDIVES_DATA\s*=\s*/, "")
-    .replace(/;\s*$/, "");
-  return JSON.parse(json);
+  const window = {};
+  Function("window", source)(window);
+  return window.DEEPDIVES_DATA;
 }
 
 async function bumpAssetVersion() {
