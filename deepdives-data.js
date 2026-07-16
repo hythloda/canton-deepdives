@@ -21,7 +21,8 @@ window.DEEPDIVES_DATA = {
       zoomSlot: "10am ET",
       presentationUrl: "",
       recordingUrl: "",
-      recordingPasscode: ""
+      recordingPasscode: "",
+      valid: true
     },
     {
       title: "Wallet Gateway",
@@ -35,7 +36,8 @@ window.DEEPDIVES_DATA = {
       zoomSlot: "10am ET",
       presentationUrl: "",
       recordingUrl: "",
-      recordingPasscode: ""
+      recordingPasscode: "",
+      valid: true
     },
     {
       title: "Traffic Based App Rewards",
@@ -49,91 +51,8 @@ window.DEEPDIVES_DATA = {
       zoomSlots: ["6am ET", "10am ET"],
       presentationUrl: "",
       recordingUrl: "",
-      recordingPasscode: ""
-    },
-    {
-      title: "How to use wallet SDK",
-      speaker: "Rukmini Basu",
-      role: "",
-      company: "Digital Asset",
-      group: "Future",
-      date: "",
-      day: "Tuesday",
-      time: "TBD",
-      zoomSlot: "10am ET",
-      presentationUrl: "",
-      recordingUrl: "",
-      recordingPasscode: ""
-    },
-    {
-      title: "How to build a dApp",
-      speaker: "Fayi Femi-Balogun",
-      role: "",
-      company: "Digital Asset",
-      group: "Future",
-      date: "",
-      day: "Tuesday",
-      time: "TBD",
-      zoomSlot: "10am ET",
-      presentationUrl: "",
-      recordingUrl: "",
-      recordingPasscode: ""
-    },
-    {
-      title: "Logical Synchronizer Upgrades",
-      speaker: "Rafael Guglielmetti",
-      role: "",
-      company: "Digital Asset",
-      group: "Future",
-      date: "",
-      day: "Tuesday",
-      time: "TBD",
-      zoomSlot: "10am ET",
-      presentationUrl: "",
-      recordingUrl: "",
-      recordingPasscode: ""
-    },
-    {
-      title: "Contract Reassignments for Multi-Sync Support",
-      speaker: "Rafael Guglielmetti",
-      role: "",
-      company: "Digital Asset",
-      group: "Future",
-      date: "",
-      day: "Tuesday",
-      time: "TBD",
-      zoomSlot: "10am ET",
-      presentationUrl: "",
-      recordingUrl: "",
-      recordingPasscode: ""
-    },
-    {
-      title: "Incoming form answer",
-      speaker: "testing",
-      role: "",
-      company: "",
-      group: "Future",
-      date: "",
-      day: "Tuesday",
-      time: "6am/10am ET",
-      zoomSlots: ["6am ET", "10am ET"],
-      presentationUrl: "",
-      recordingUrl: "",
-      recordingPasscode: ""
-    },
-    {
-      title: "sdfds",
-      speaker: "sdfds",
-      role: "",
-      company: "",
-      group: "Future",
-      date: "2026-07-17",
-      day: "Tuesday",
-      time: "TBD",
-      zoomSlot: "10am ET",
-      presentationUrl: "",
-      recordingUrl: "",
-      recordingPasscode: ""
+      recordingPasscode: "",
+      valid: true
     },
     {
       title: "Splice Automation",
@@ -147,7 +66,8 @@ window.DEEPDIVES_DATA = {
       zoomSlot: "10am ET",
       presentationUrl: "",
       recordingUrl: "",
-      recordingPasscode: ""
+      recordingPasscode: "$LLuWE9y",
+      valid: true
     }
   ]
 };

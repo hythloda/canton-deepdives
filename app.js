@@ -30,6 +30,7 @@
   function render() {
     const term = search.value.trim().toLowerCase();
     const filtered = sessions
+      .filter((session) => session.valid !== false)
       .filter((session) => searchableText(session).includes(term))
       .filter((session) => getTiming(session) === activeView)
       .sort(sortSessions);
@@ -65,8 +66,26 @@
   }
 
   function renderLinks(session) {
-    const zoomLinks = getZoomLinks(session);
+    const isPast = getTiming(session) === "past";
     const links = [];
+
+    if (isPast) {
+      if (session.presentationUrl) {
+        links.push(linkButton(session.presentationUrl, "Presentation"));
+      }
+
+      if (session.recordingUrl) {
+        links.push(linkButton(session.recordingUrl, "Recording"));
+      }
+
+      if (session.recordingPasscode) {
+        links.push('<span class="passcode recording-code">Recording passcode ' + escapeHtml(session.recordingPasscode) + '</span>');
+      }
+
+      return '<div class="session-actions">' + links.join("") + '</div>';
+    }
+
+    const zoomLinks = getZoomLinks(session);
 
     for (const zoomLink of zoomLinks) {
       links.push(linkButton(zoomLink.url, zoomLink.label));
@@ -81,10 +100,6 @@
     }
 
     links.push('<span class="passcode">Meeting passcode ' + escapeHtml(zoom.passcode) + '</span>');
-
-    if (session.recordingUrl && session.recordingPasscode) {
-      links.push('<span class="passcode recording-code">Recording passcode ' + escapeHtml(session.recordingPasscode) + '</span>');
-    }
 
     return '<div class="session-actions">' + links.join("") + '</div>';
   }
