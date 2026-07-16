@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-07-16T22:48:45.849Z",
+  "updatedAt": "2026-07-16T22:50:50.885Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "passcode": "626262",
@@ -18,6 +18,21 @@ window.DEEPDIVES_DATA = {
       "date": "2026-07-21",
       "day": "Tuesday",
       "time": "10am ET",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "",
+      "recordingUrl": "",
+      "recordingPasscode": "",
+      "valid": true
+    },
+    {
+      "title": "How to use wallet SDK",
+      "speaker": "Rukmini Basu",
+      "role": "",
+      "company": "DA",
+      "group": "Future",
+      "date": "2026-07-21",
+      "day": "Tuesday",
+      "time": "TBD",
       "zoomSlot": "10am ET",
       "presentationUrl": "",
       "recordingUrl": "",
