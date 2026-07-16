@@ -1,15 +1,23 @@
 # Canton Deep Dives
 
-Static GitHub Pages site for the Canton Foundation deep-dive calendar.
+Static site for the Canton Foundation deep-dive calendar.
 
-The page uses a lightweight Canton/member-site inspired design and embeds the public Monday board as the live source of truth.
+The page uses a lightweight Canton/member-site inspired design and publishes data from the Canton Deep Dive Monday board.
 
 ## Local Preview
 
 Open `index.html` in a browser, or run any static file server from this directory.
 
-## Publish on GitHub Pages
+## Publish
 
-1. Push this repository to GitHub as `canton-deepdives`.
-2. In the repository settings, enable Pages from the default branch root.
-3. The site will be served from the GitHub Pages URL for the repository.
+Cloudflare is configured to build from the GitHub repository root using `wrangler.jsonc`.
+
+## Monday Sync
+
+The repo includes automation for Monday board updates:
+
+- `.github/workflows/sync-monday.yml` runs the sync.
+- `scripts/sync-monday.mjs` reads Monday's API and rewrites `deepdives-data.js`.
+- `workers/monday-github-dispatch.js` is a Cloudflare Worker webhook template that lets Monday trigger the GitHub Action.
+
+See [docs/monday-sync-setup.md](docs/monday-sync-setup.md) for the setup steps and required secrets.
