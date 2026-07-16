@@ -133,6 +133,9 @@
   }
 
   function getTiming(session) {
+    const group = String(session.group || "").trim().toLowerCase();
+    if (group === "past") return "past";
+    if (group) return "coming";
     if (!session.date) return "coming";
     const sessionDate = new Date(session.date + "T23:59:59");
     return sessionDate < new Date() ? "past" : "coming";
