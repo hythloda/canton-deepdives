@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-07-19T13:54:13.462Z",
+  "updatedAt": "2026-07-19T15:15:32.008Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "passcode": "626262",
