@@ -88,11 +88,22 @@ const sessions = items
   .sort(compareSessions);
 
 const current = await readCurrentData();
+const nextComparable = {
+  sourceUrl: SOURCE_URL,
+  zoom: {
+    slots: current.zoom?.slots || {},
+  },
+  sessions,
+};
+
+if (JSON.stringify(comparableData(current)) === JSON.stringify(nextComparable)) {
+  console.log(`No public data changes for Monday board ${BOARD_ID}`);
+  process.exit(0);
+}
+
 const next = {
   updatedAt: new Date().toISOString(),
-  sourceUrl: SOURCE_URL,
-  zoom: current.zoom,
-  sessions,
+  ...nextComparable,
 };
 
 await writeFile("deepdives-data.js", `window.DEEPDIVES_DATA = ${JSON.stringify(next, null, 2)};\n`);
@@ -241,6 +252,11 @@ async function readCurrentData() {
   const window = {};
   Function("window", source)(window);
   return window.DEEPDIVES_DATA;
+}
+
+function comparableData(data) {
+  const { updatedAt, ...rest } = data || {};
+  return rest;
 }
 
 async function bumpAssetVersion() {
