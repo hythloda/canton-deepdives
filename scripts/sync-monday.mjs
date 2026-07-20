@@ -191,11 +191,32 @@ function parseSpeakerCompany(value) {
   const text = value.replace(/\s+/g, " ").trim();
   if (!text) return { speaker: "", role: "", company: "" };
 
-  const parts = text.split(",").map((part) => part.trim()).filter(Boolean);
+  if (text.includes(";")) {
+    const speakers = text
+      .split(";")
+      .map((part) => parseSingleSpeakerCompany(part.trim()))
+      .filter((part) => part.speaker);
+
+    return {
+      speaker: speakers.map((part) => part.speaker).join(", "),
+      role: uniqueValues(speakers.map((part) => part.role)).join(", "),
+      company: uniqueValues(speakers.map((part) => part.company)).join(" / "),
+    };
+  }
+
+  return parseSingleSpeakerCompany(text);
+}
+
+function parseSingleSpeakerCompany(value) {
+  const parts = value.split(",").map((part) => part.trim()).filter(Boolean);
   if (parts.length === 2) return { speaker: parts[0], role: "", company: parts[1] };
   if (parts.length === 3) return { speaker: parts[0], role: parts[1], company: parts[2] };
 
-  return { speaker: text, role: "", company: "" };
+  return { speaker: value, role: "", company: "" };
+}
+
+function uniqueValues(values) {
+  return [...new Set(values.map((value) => value.trim()).filter(Boolean))];
 }
 
 function normalizeTime(value) {
