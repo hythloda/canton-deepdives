@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-07-20T11:13:45.973Z",
+  "updatedAt": "2026-07-20T13:18:16.841Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -38,9 +38,9 @@ window.DEEPDIVES_DATA = {
     },
     {
       "title": "Traffic Based App Rewards",
-      "speaker": "Robert Autenrieth, DA; Tim Emiola, Obsidian Systems; Simon Meier, DA; Divam Narula, Obsidian Systems",
+      "speaker": "Robert Autenrieth, Tim Emiola, Simon Meier, Divam Narula",
       "role": "",
-      "company": "",
+      "company": "DA / Obsidian Systems",
       "group": "Coming Soon",
       "date": "2026-08-18",
       "day": "Tuesday",
