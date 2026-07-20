@@ -1,7 +1,7 @@
 (function () {
   const data = window.DEEPDIVES_DATA || { sessions: [] };
   const sessions = Array.isArray(data.sessions) ? data.sessions : [];
-  const zoom = data.zoom || { passcode: "626262", slots: {} };
+  const zoom = data.zoom || { slots: {} };
   const list = document.getElementById("session-list");
   const empty = document.getElementById("empty-state");
   const search = document.getElementById("search");
@@ -94,8 +94,6 @@
     if (session.recordingUrl) {
       links.push(linkButton(session.recordingUrl, "Recording"));
     }
-
-    links.push('<span class="passcode">Meeting passcode ' + escapeHtml(zoom.passcode) + '</span>');
 
     return '<div class="session-actions">' + links.join("") + '</div>';
   }

@@ -135,7 +135,6 @@ function toSession(item, columns) {
     ...zoomFields(time),
     presentationUrl,
     recordingUrl,
-    recordingPasscode: "",
     valid: isValid(values[columns.valid], group),
   };
 }

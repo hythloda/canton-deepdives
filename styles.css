@@ -323,8 +323,7 @@ p {
   gap: 8px;
 }
 
-.pill,
-.passcode {
+.pill {
   display: inline-flex;
   align-items: center;
   min-height: 28px;
@@ -342,16 +341,6 @@ p {
 
 .company {
   color: var(--muted);
-}
-
-.passcode {
-  min-height: 34px;
-  border-radius: 8px;
-  color: var(--cool);
-}
-
-.recording-code {
-  color: var(--accent);
 }
 
 .empty-state {
