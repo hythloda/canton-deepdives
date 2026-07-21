@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-07-20T13:18:16.841Z",
+  "updatedAt": "2026-07-21T15:26:54.771Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -8,20 +8,6 @@ window.DEEPDIVES_DATA = {
     }
   },
   "sessions": [
-    {
-      "title": "dApp API & SDK",
-      "speaker": "Marc Juchli",
-      "role": "",
-      "company": "Digital Asset",
-      "group": "Coming Soon",
-      "date": "2026-07-21",
-      "day": "Tuesday",
-      "time": "10am ET",
-      "zoomSlot": "10am ET",
-      "presentationUrl": "",
-      "recordingUrl": "",
-      "valid": true
-    },
     {
       "title": "Wallet Gateway",
       "speaker": "Alex Matson",
@@ -65,6 +51,20 @@ window.DEEPDIVES_DATA = {
       "zoomSlot": "10am ET",
       "presentationUrl": "https://docs.google.com/presentation/d/1wpnRrzdaZZS8sug710XricxB124uk_CFwtIqE2NO-1A/edit?slide=id.g3d69844f64f_1_1106#slide=id.g3d69844f64f_1_1106",
       "recordingUrl": "https://us06web.zoom.us/rec/share/2EFKAn-ShuWDIzsx9xQ2pbS2q1qeLvpwLAyxcw2_rXLt_2jddxNgwZUT9i-wsQtK.ttnWt7LM9ZmXjxsq",
+      "valid": true
+    },
+    {
+      "title": "dApp API & SDK",
+      "speaker": "Marc Juchli",
+      "role": "",
+      "company": "Digital Asset",
+      "group": "Past",
+      "date": "2026-07-21",
+      "day": "Tuesday",
+      "time": "10am ET",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "https://us06web.zoom.us/rec/share/Bja7wlJs8xJWZVX2Ju-Oqtq2qihDQqwtAJyFpu1UHpAx2K1ZUU5w9qj5k6_izRDd.-GStZ1QPfQfL65ih",
+      "recordingUrl": "",
       "valid": true
     }
   ]
