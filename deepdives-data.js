@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-07-21T15:28:57.304Z",
+  "updatedAt": "2026-07-28T15:14:00.863Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -8,20 +8,6 @@ window.DEEPDIVES_DATA = {
     }
   },
   "sessions": [
-    {
-      "title": "Wallet Gateway",
-      "speaker": "Alex Matson",
-      "role": "",
-      "company": "Digital Asset",
-      "group": "Coming Soon",
-      "date": "2026-07-28",
-      "day": "Tuesday",
-      "time": "10am ET",
-      "zoomSlot": "10am ET",
-      "presentationUrl": "",
-      "recordingUrl": "",
-      "valid": true
-    },
     {
       "title": "Traffic Based App Rewards",
       "speaker": "Robert Autenrieth, Tim Emiola, Simon Meier, Divam Narula",
@@ -65,6 +51,20 @@ window.DEEPDIVES_DATA = {
       "zoomSlot": "10am ET",
       "presentationUrl": "https://docs.google.com/presentation/d/158DLuQ3y3PEDX72WRpisGUwxH-O7LHh3RD5NBYVU2eM/edit?slide=id.g3d69844f64f_1_1675#slide=id.g3d69844f64f_1_1675",
       "recordingUrl": "https://us06web.zoom.us/rec/share/Bja7wlJs8xJWZVX2Ju-Oqtq2qihDQqwtAJyFpu1UHpAx2K1ZUU5w9qj5k6_izRDd.-GStZ1QPfQfL65ih",
+      "valid": true
+    },
+    {
+      "title": "Wallet Gateway",
+      "speaker": "Alex Matson",
+      "role": "",
+      "company": "Digital Asset",
+      "group": "Past",
+      "date": "2026-07-28",
+      "day": "Tuesday",
+      "time": "10am ET",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "",
+      "recordingUrl": "https://us06web.zoom.us/rec/share/iUYn7wNoOwxPKSyPaJWy6SemtdET11w15msyRTIDfLITTqYlIGoacP0bo6O1.gZjDXOHxIaGALxZV",
       "valid": true
     }
   ]
