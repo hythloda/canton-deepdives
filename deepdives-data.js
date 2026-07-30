@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-07-28T17:35:31.861Z",
+  "updatedAt": "2026-07-30T10:55:55.810Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -16,11 +16,8 @@ window.DEEPDIVES_DATA = {
       "group": "Coming Soon",
       "date": "2026-08-18",
       "day": "Tuesday",
-      "time": "6am/10am ET",
-      "zoomSlots": [
-        "6am ET",
-        "10am ET"
-      ],
+      "time": "6am ET",
+      "zoomSlot": "6am ET",
       "presentationUrl": "",
       "recordingUrl": "",
       "valid": true
