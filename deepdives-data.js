@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-07-30T10:55:55.810Z",
+  "updatedAt": "2026-07-30T11:31:03.231Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -8,6 +8,20 @@ window.DEEPDIVES_DATA = {
     }
   },
   "sessions": [
+    {
+      "title": "How to build a dApp",
+      "speaker": "Fayi Femi-Balogun",
+      "role": "",
+      "company": "DA",
+      "group": "Coming Soon",
+      "date": "2026-08-04",
+      "day": "Tuesday",
+      "time": "TBD",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "",
+      "recordingUrl": "",
+      "valid": true
+    },
     {
       "title": "Traffic Based App Rewards",
       "speaker": "Robert Autenrieth, Tim Emiola, Simon Meier, Divam Narula",
