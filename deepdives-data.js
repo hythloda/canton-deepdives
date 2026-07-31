@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-07-30T11:32:29.268Z",
+  "updatedAt": "2026-07-31T11:09:43.790Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -34,6 +34,20 @@ window.DEEPDIVES_DATA = {
       "zoomSlot": "6am ET",
       "presentationUrl": "",
       "recordingUrl": "",
+      "valid": true
+    },
+    {
+      "title": "How to use wallet SDK",
+      "speaker": "Rukmini Basu",
+      "role": "",
+      "company": "DA",
+      "group": "Coming Soon",
+      "date": "2026-08-25",
+      "day": "Tuesday",
+      "time": "TBD",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "",
+      "recordingUrl": "https://%20%20",
       "valid": true
     },
     {
