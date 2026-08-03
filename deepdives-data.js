@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-08-03T15:39:21.934Z",
+  "updatedAt": "2026-08-03T16:04:11.627Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -52,8 +52,8 @@ window.DEEPDIVES_DATA = {
     },
     {
       "title": "Contract Reassignments for Multi-Sync Support",
-      "speaker": "Rafael Guglielmetti",
-      "role": "DA and Meriam Lachkar",
+      "speaker": "Rafael Guglielmetti, Meriam Lachkar",
+      "role": "",
       "company": "DA",
       "group": "Coming Soon",
       "date": "2026-09-01",
