@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-08-03T16:04:11.627Z",
+  "updatedAt": "2026-08-04T13:32:29.448Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -12,7 +12,7 @@ window.DEEPDIVES_DATA = {
       "title": "How to build a dApp",
       "speaker": "Fayi Femi-Balogun",
       "role": "",
-      "company": "DA",
+      "company": "Digital Asset",
       "group": "Coming Soon",
       "date": "2026-08-11",
       "day": "Tuesday",
@@ -26,7 +26,7 @@ window.DEEPDIVES_DATA = {
       "title": "Traffic Based App Rewards",
       "speaker": "Robert Autenrieth, Tim Emiola, Simon Meier, Divam Narula",
       "role": "",
-      "company": "DA / Obsidian Systems",
+      "company": "Digital Asset / Obsidian Systems",
       "group": "Coming Soon",
       "date": "2026-08-18",
       "day": "Tuesday",
@@ -40,7 +40,7 @@ window.DEEPDIVES_DATA = {
       "title": "How to use wallet SDK",
       "speaker": "Rukmini Basu",
       "role": "",
-      "company": "DA",
+      "company": "Digital Asset",
       "group": "Coming Soon",
       "date": "2026-08-25",
       "day": "Tuesday",
@@ -54,7 +54,7 @@ window.DEEPDIVES_DATA = {
       "title": "Contract Reassignments for Multi-Sync Support",
       "speaker": "Rafael Guglielmetti, Meriam Lachkar",
       "role": "",
-      "company": "DA",
+      "company": "Digital Asset",
       "group": "Coming Soon",
       "date": "2026-09-01",
       "day": "Tuesday",
