@@ -47,7 +47,7 @@ window.DEEPDIVES_DATA = {
       "time": "10am ET",
       "zoomSlot": "10am ET",
       "presentationUrl": "",
-      "recordingUrl": "https://%20%20",
+      "recordingUrl": "",
       "valid": true
     },
     {

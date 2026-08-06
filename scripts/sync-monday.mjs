@@ -179,12 +179,26 @@ function extractDate(value) {
 function extractUrl(value) {
   if (!value) return "";
   const raw = parseJson(value.value);
-  if (raw?.url) return raw.url;
-  if (raw?.link) return raw.link;
+  if (raw?.url) return cleanUrl(raw.url);
+  if (raw?.link) return cleanUrl(raw.link);
   if (Array.isArray(raw?.files)) return "";
 
   const text = cellText(value);
-  return text.match(/https?:\/\/\S+/)?.[0] || "";
+  return cleanUrl(text.match(/https?:\/\/\S+/)?.[0] || "");
+}
+
+function cleanUrl(value) {
+  const url = String(value || "").trim();
+  if (!url || /%20|\s/.test(url)) return "";
+
+  try {
+    const parsed = new URL(url);
+    if (!["http:", "https:"].includes(parsed.protocol)) return "";
+    if (!parsed.hostname || !parsed.hostname.includes(".")) return "";
+    return parsed.href;
+  } catch {
+    return "";
+  }
 }
 
 function parseSpeakerCompany(value) {
