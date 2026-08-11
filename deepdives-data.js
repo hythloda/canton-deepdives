@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-08-04T13:32:29.448Z",
+  "updatedAt": "2026-08-11T15:16:16.930Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -8,20 +8,6 @@ window.DEEPDIVES_DATA = {
     }
   },
   "sessions": [
-    {
-      "title": "How to build a dApp",
-      "speaker": "Fayi Femi-Balogun",
-      "role": "",
-      "company": "Digital Asset",
-      "group": "Coming Soon",
-      "date": "2026-08-11",
-      "day": "Tuesday",
-      "time": "10am ET",
-      "zoomSlot": "10am ET",
-      "presentationUrl": "",
-      "recordingUrl": "",
-      "valid": true
-    },
     {
       "title": "Traffic Based App Rewards",
       "speaker": "Robert Autenrieth, Tim Emiola, Simon Meier, Divam Narula",
@@ -104,6 +90,20 @@ window.DEEPDIVES_DATA = {
       "zoomSlot": "10am ET",
       "presentationUrl": "https://drive.google.com/file/d/1gtps07AC6ghv3cJuIASTowEFXCC_P1xt/view?usp=sharing",
       "recordingUrl": "https://us06web.zoom.us/rec/share/iUYn7wNoOwxPKSyPaJWy6SemtdET11w15msyRTIDfLITTqYlIGoacP0bo6O1.gZjDXOHxIaGALxZV",
+      "valid": true
+    },
+    {
+      "title": "How to build a dApp",
+      "speaker": "Fayi Femi-Balogun",
+      "role": "",
+      "company": "Digital Asset",
+      "group": "Past",
+      "date": "2026-08-11",
+      "day": "Tuesday",
+      "time": "10am ET",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "",
+      "recordingUrl": "",
       "valid": true
     }
   ]
