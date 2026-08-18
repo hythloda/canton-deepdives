@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-08-18T11:07:46.058Z",
+  "updatedAt": "2026-08-18T11:08:26.825Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -8,20 +8,6 @@ window.DEEPDIVES_DATA = {
     }
   },
   "sessions": [
-    {
-      "title": "Traffic Based App Rewards",
-      "speaker": "Robert Autenrieth, Tim Emiola, Simon Meier, Divam Narula",
-      "role": "",
-      "company": "Digital Asset / Obsidian Systems",
-      "group": "Coming Soon",
-      "date": "2026-08-18",
-      "day": "Tuesday",
-      "time": "6am ET",
-      "zoomSlot": "6am ET",
-      "presentationUrl": "https://docs.google.com/presentation/d/e/2PACX-1vTjCdozvunyD5d9CMMHUmrRVYG_HHLYgDq_ELhwSp0BPUuvSdDNJaZ8JzoD7PsLKqRgctYJzAKzMrHC/pub?start=false&loop=false&delayms=3000",
-      "recordingUrl": "",
-      "valid": true
-    },
     {
       "title": "How to use wallet SDK",
       "speaker": "Rukmini Basu",
@@ -104,6 +90,20 @@ window.DEEPDIVES_DATA = {
       "zoomSlot": "10am ET",
       "presentationUrl": "https://docs.google.com/presentation/d/e/2PACX-1vSKOLdebXPLJTVN7_QuKLjYUWb33Ft5MrRWGI7Jahzbk-cnHOAYCBQtJWUEHrsrkF5aiWVnN8UbgvoM/pub?start=false&loop=false&delayms=3000",
       "recordingUrl": "https://us06web.zoom.us/rec/play/I1ttN8TzAM8VQTJOz9CMKuD6khT633pQmZSNRWPKa59fVhdZ-vg13dudhk8ib32JrJBe41oBGQGjd9X0.uTAmJ-PbOoAawsFi?accessLevel=meeting&canPlayFromShare=true&from=my_recording&continueMode=true&oldStyle=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fus06web.zoom.us%2Frec%2Fshare%2F14zrs2rwtziTSwG1zrDPKs6P7iXEELbIuALyAQtGXXhihyJ4JaIwmDf6uRrkXxGa.QQJJLMJSelp80ay8",
+      "valid": true
+    },
+    {
+      "title": "Traffic Based App Rewards",
+      "speaker": "Robert Autenrieth, Tim Emiola, Simon Meier, Divam Narula",
+      "role": "",
+      "company": "Digital Asset / Obsidian Systems",
+      "group": "Past",
+      "date": "2026-08-18",
+      "day": "Tuesday",
+      "time": "6am ET",
+      "zoomSlot": "6am ET",
+      "presentationUrl": "https://docs.google.com/presentation/d/e/2PACX-1vTjCdozvunyD5d9CMMHUmrRVYG_HHLYgDq_ELhwSp0BPUuvSdDNJaZ8JzoD7PsLKqRgctYJzAKzMrHC/pub?start=false&loop=false&delayms=3000",
+      "recordingUrl": "",
       "valid": true
     }
   ]
