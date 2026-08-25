@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-08-25T15:23:16.788Z",
+  "updatedAt": "2026-08-25T19:47:58.925Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -116,7 +116,7 @@ window.DEEPDIVES_DATA = {
       "day": "Tuesday",
       "time": "10am ET",
       "zoomSlot": "10am ET",
-      "presentationUrl": "https://docs.google.com/presentation/d/e/2PACX-1vRWTawT49TC5Sff7ZZJnTuykfTeBycjgLXhndxEcKweZmqixbJIF03WRvNa44WsHA87auGtAoYMb_vE/pub?start=false&loop=false&delayms=3000",
+      "presentationUrl": "https://docs.google.com/presentation/d/1chYupab2SOiNK7bhiMiqEqyaMi0qytmQUqSg30LiErE/edit?usp=sharing",
       "recordingUrl": "https://us06web.zoom.us/rec/share/FPfhlyexqpX6wAMbRVUTr-qnAb_KCzokmrn4txaAPVEeL_Y7F6UJ0ta5SPmAH0vi.v3xT8A8SCpCtNs4F?startTime=1787666248000",
       "valid": true
     }
