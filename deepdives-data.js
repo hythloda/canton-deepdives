@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-08-18T11:36:36.989Z",
+  "updatedAt": "2026-08-25T15:05:32.878Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -8,20 +8,6 @@ window.DEEPDIVES_DATA = {
     }
   },
   "sessions": [
-    {
-      "title": "How to use wallet SDK",
-      "speaker": "Rukmini Basu",
-      "role": "",
-      "company": "Digital Asset",
-      "group": "Coming Soon",
-      "date": "2026-08-25",
-      "day": "Tuesday",
-      "time": "10am ET",
-      "zoomSlot": "10am ET",
-      "presentationUrl": "",
-      "recordingUrl": "",
-      "valid": true
-    },
     {
       "title": "Contract Reassignments for Multi-Sync Support",
       "speaker": "Rafael Guglielmetti, Meriam Lachkar",
@@ -104,6 +90,20 @@ window.DEEPDIVES_DATA = {
       "zoomSlot": "6am ET",
       "presentationUrl": "https://docs.google.com/presentation/d/e/2PACX-1vTjCdozvunyD5d9CMMHUmrRVYG_HHLYgDq_ELhwSp0BPUuvSdDNJaZ8JzoD7PsLKqRgctYJzAKzMrHC/pub?start=false&loop=false&delayms=3000",
       "recordingUrl": "https://us06web.zoom.us/rec/share/6S214hWiXd4E4MQgO_AV0fyNHMHFN24ricr3C-ykfwTMmIBJ7J56O1kD5VywsL1P.7WtD_9MlVTgYdNQb",
+      "valid": true
+    },
+    {
+      "title": "How to use wallet SDK",
+      "speaker": "Rukmini Basu",
+      "role": "",
+      "company": "Digital Asset",
+      "group": "Past",
+      "date": "2026-08-25",
+      "day": "Tuesday",
+      "time": "10am ET",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "",
+      "recordingUrl": "",
       "valid": true
     }
   ]
