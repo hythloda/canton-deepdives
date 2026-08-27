@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-08-25T19:47:58.925Z",
+  "updatedAt": "2026-08-27T17:06:39.161Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -15,6 +15,20 @@ window.DEEPDIVES_DATA = {
       "company": "Digital Asset",
       "group": "Coming Soon",
       "date": "2026-09-01",
+      "day": "Tuesday",
+      "time": "10am ET",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "",
+      "recordingUrl": "",
+      "valid": true
+    },
+    {
+      "title": "CantonBFT",
+      "speaker": "Tom Tantillo",
+      "role": "",
+      "company": "Digital Asset",
+      "group": "Coming Soon",
+      "date": "2026-09-29",
       "day": "Tuesday",
       "time": "10am ET",
       "zoomSlot": "10am ET",
