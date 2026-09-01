@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-09-01T16:22:47.603Z",
+  "updatedAt": "2026-09-01T16:23:30.575Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -33,7 +33,7 @@ window.DEEPDIVES_DATA = {
       "time": "10am ET",
       "zoomSlot": "10am ET",
       "presentationUrl": "",
-      "recordingUrl": "https://us06web.zoom.us/rec/play/5i4L1kpArQ5ScqAHVgCk8D4Jp4miyX9qj2mAPzUTnT6cjCIOJLoygHwNqgYgJtBsKFvpeIylBTOIKVVV.W6An0CG7pxI-iNPv?accessLevel=meeting&canPlayFromShare=true&from=my_recording&continueMode=true&oldStyle=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fus06web.zoom.us%2Frec%2Fshare%2FTGX-M66Z7j5pTppoKy8Tuu6B8DMVN634wfby7nM9185eQyPFx20F9ho8qYB1k0wE.lKkuHrmYU-cIdO7g",
+      "recordingUrl": "",
       "valid": true
     },
     {
