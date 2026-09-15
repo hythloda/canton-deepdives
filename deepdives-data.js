@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-09-09T13:30:31.762Z",
+  "updatedAt": "2026-09-15T16:08:41.101Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -9,12 +9,12 @@ window.DEEPDIVES_DATA = {
   },
   "sessions": [
     {
-      "title": "Daml Package Manager (DPM)",
-      "speaker": "Sammy Abed",
+      "title": "CantonBFT",
+      "speaker": "Tom Tantillo",
       "role": "",
       "company": "Digital Asset",
       "group": "Coming Soon",
-      "date": "2026-09-15",
+      "date": "2026-09-29",
       "day": "Tuesday",
       "time": "10am ET",
       "zoomSlot": "10am ET",
@@ -23,12 +23,12 @@ window.DEEPDIVES_DATA = {
       "valid": true
     },
     {
-      "title": "CantonBFT",
-      "speaker": "Tom Tantillo",
+      "title": "Daml Package Manager (DPM)",
+      "speaker": "Sammy Abed",
       "role": "",
       "company": "Digital Asset",
       "group": "Coming Soon",
-      "date": "2026-09-29",
+      "date": "2026-10-06",
       "day": "Tuesday",
       "time": "10am ET",
       "zoomSlot": "10am ET",
