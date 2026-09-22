@@ -135,6 +135,7 @@ function toSession(item, columns) {
   const recordingUrl = extractUrl(values[columns.recordingLink]);
 
   return {
+    id: String(item.id),
     title: item.name || "Untitled",
     speaker: speakerParts.speaker,
     role: speakerParts.role,

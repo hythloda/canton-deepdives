@@ -131,6 +131,7 @@ p {
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
   transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 
@@ -278,6 +279,13 @@ p {
   grid-template-columns: 74px minmax(0, 1fr);
   gap: 18px;
   padding: 18px;
+  scroll-margin-block: 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.session-card.permalink-target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(236, 229, 127, 0.24), var(--shadow);
 }
 
 .date-icon {

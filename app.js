@@ -9,10 +9,16 @@
   let activeView = "coming";
 
   tabs.forEach((tab) => {
-    tab.addEventListener("click", () => setView(tab.dataset.view));
+    tab.addEventListener("click", () => {
+      clearSessionHash();
+      setView(tab.dataset.view);
+    });
   });
 
   search.addEventListener("input", render);
+  list.addEventListener("click", handleListClick);
+  window.addEventListener("hashchange", openLinkedSession);
+  openLinkedSession();
   render();
 
   function setView(view) {
@@ -37,11 +43,16 @@
 
     list.innerHTML = filtered.map(renderSession).join("");
     empty.hidden = filtered.length > 0;
+
+    const linkedCard = document.getElementById(getHashId());
+    if (linkedCard) linkedCard.classList.add("permalink-target");
   }
 
   function renderSession(session) {
+    const permalinkId = sessionPermalinkId(session);
+
     return (
-      '<article class="session-card">' +
+      '<article class="session-card" id="' + escapeAttr(permalinkId) + '">' +
         '<div class="date-icon" aria-label="' + escapeAttr(dateLabel(session)) + '">' +
           '<span>' + escapeHtml(dateMonth(session)) + '</span>' +
           '<strong>' + escapeHtml(dateDay(session)) + '</strong>' +
@@ -51,7 +62,7 @@
           '<h2>' + escapeHtml(session.title) + '</h2>' +
           '<p class="speaker-line">' + escapeHtml(session.speaker || "Speaker TBD") + '</p>' +
           '<p class="company">' + escapeHtml([session.role, session.company].filter(Boolean).join(", ")) + '</p>' +
-          renderLinks(session) +
+          renderLinks(session, permalinkId) +
         '</div>' +
       '</article>'
     );
@@ -65,7 +76,7 @@
     ].join("");
   }
 
-  function renderLinks(session) {
+  function renderLinks(session, permalinkId) {
     const isPast = getTiming(session) === "past";
     const links = [];
 
@@ -78,6 +89,7 @@
         links.push(linkButton(session.recordingUrl, "Recording"));
       }
 
+      links.push(copyLinkButton(permalinkId));
       return '<div class="session-actions">' + links.join("") + '</div>';
     }
 
@@ -95,11 +107,102 @@
       links.push(linkButton(session.recordingUrl, "Recording"));
     }
 
+    links.push(copyLinkButton(permalinkId));
     return '<div class="session-actions">' + links.join("") + '</div>';
   }
 
   function linkButton(url, label) {
     return '<a class="action-link compact" href="' + escapeAttr(url) + '" target="_blank" rel="noopener">' + escapeHtml(label) + '</a>';
+  }
+
+  function copyLinkButton(permalinkId) {
+    return '<button class="action-link compact copy-link" type="button" data-copy-link="' + escapeAttr(permalinkId) + '">Copy link</button>';
+  }
+
+  async function handleListClick(event) {
+    const button = event.target.closest("[data-copy-link]");
+    if (!button) return;
+
+    const url = new URL(window.location.href);
+    url.hash = button.dataset.copyLink;
+
+    try {
+      await navigator.clipboard.writeText(url.href);
+    } catch {
+      const input = document.createElement("textarea");
+      input.value = url.href;
+      input.setAttribute("readonly", "");
+      input.style.position = "fixed";
+      input.style.opacity = "0";
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand("copy");
+      input.remove();
+    }
+
+    const originalLabel = button.textContent;
+    button.textContent = "Link copied";
+    window.setTimeout(() => {
+      button.textContent = originalLabel;
+    }, 1800);
+  }
+
+  function openLinkedSession() {
+    const hashId = getHashId();
+    if (!hashId) return;
+
+    const session = sessions.find((entry) => sessionPermalinkIds(entry).includes(hashId));
+    if (!session) return;
+
+    activeView = getTiming(session);
+    search.value = "";
+    tabs.forEach((tab) => {
+      const isActive = tab.dataset.view === activeView;
+      tab.classList.toggle("active", isActive);
+      tab.setAttribute("aria-selected", String(isActive));
+    });
+    render();
+
+    window.requestAnimationFrame(() => {
+      const card = document.getElementById(sessionPermalinkId(session));
+      card?.classList.add("permalink-target");
+      card?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  }
+
+  function getHashId() {
+    try {
+      return decodeURIComponent(window.location.hash.slice(1));
+    } catch {
+      return window.location.hash.slice(1);
+    }
+  }
+
+  function clearSessionHash() {
+    if (!window.location.hash) return;
+    window.history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+
+  function sessionPermalinkId(session) {
+    if (session.id) return "deep-dive-" + slugify(session.id);
+    return legacyPermalinkId(session);
+  }
+
+  function sessionPermalinkIds(session) {
+    return [...new Set([sessionPermalinkId(session), legacyPermalinkId(session)])];
+  }
+
+  function legacyPermalinkId(session) {
+    return slugify([session.date, session.title].filter(Boolean).join("-"));
+  }
+
+  function slugify(value) {
+    return String(value || "deep-dive")
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
   }
 
   function pill(value) {
