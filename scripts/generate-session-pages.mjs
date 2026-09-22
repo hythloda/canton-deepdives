@@ -110,7 +110,6 @@ function renderActions(session, zoom) {
 
   if (session.presentationUrl) links.push(linkButton(session.presentationUrl, "Presentation", true));
   if (session.recordingUrl) links.push(linkButton(session.recordingUrl, "Recording", true));
-  links.push('<a class="action-link compact" href="../../">Full list</a>');
   return links.join("");
 }
 
