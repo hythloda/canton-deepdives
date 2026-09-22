@@ -5,21 +5,24 @@ const OUTPUT_DIR = "deep-dives";
 const CANONICAL_ORIGIN = "https://canton-deepdives.canton.foundation";
 
 export async function generateSessionPages(data) {
-  const sessions = Array.isArray(data.sessions) ? data.sessions : [];
+  const sessions = (Array.isArray(data.sessions) ? data.sessions : [])
+    .filter((session) => session.valid !== false && session.id)
+    .sort(compareSessionDates);
 
   await rm(OUTPUT_DIR, { recursive: true, force: true });
   await mkdir(OUTPUT_DIR, { recursive: true });
 
-  for (const session of sessions) {
-    if (session.valid === false || !session.id) continue;
-
+  for (const [index, session] of sessions.entries()) {
     const directory = `${OUTPUT_DIR}/${safeId(session.id)}`;
     await mkdir(directory, { recursive: true });
-    await writeFile(`${directory}/index.html`, renderSessionPage(session, data.zoom || {}));
+    await writeFile(
+      `${directory}/index.html`,
+      renderSessionPage(session, data.zoom || {}, sessions[index - 1], sessions[index + 1]),
+    );
   }
 }
 
-function renderSessionPage(session, zoom) {
+function renderSessionPage(session, zoom, previousSession, nextSession) {
   const title = session.title || "Canton Deep Dive";
   const date = formatDate(session.date);
   const presenter = session.speaker || "Speaker to be announced";
@@ -42,7 +45,7 @@ function renderSessionPage(session, zoom) {
   <meta property="og:url" content="${escapeAttr(canonicalUrl)}">
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="${escapeAttr(canonicalUrl)}">
-  <link rel="stylesheet" href="../../styles.css?v=detail-pages-20260922">
+  <link rel="stylesheet" href="../../styles.css?v=session-nav-20260922">
 </head>
 <body class="session-detail-page">
   <main class="page detail-page">
@@ -69,10 +72,30 @@ function renderSessionPage(session, zoom) {
         <div class="session-actions">${actions}</div>
       </div>
     </article>
+
+    ${renderSessionNavigation(previousSession, nextSession)}
   </main>
 </body>
 </html>
 `;
+}
+
+function renderSessionNavigation(previousSession, nextSession) {
+  if (!previousSession && !nextSession) return "";
+
+  return `<nav class="detail-pagination" aria-label="Deep dive navigation">
+    ${sessionNavigationLink(previousSession, "Previous", "previous")}
+    ${sessionNavigationLink(nextSession, "Next", "next")}
+  </nav>`;
+}
+
+function sessionNavigationLink(session, label, position) {
+  if (!session) return `<span class="detail-pagination-empty ${position}" aria-hidden="true"></span>`;
+
+  return `<a class="detail-pagination-link ${position}" href="../${safeId(session.id)}/">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(session.title || "Canton Deep Dive")}</strong>
+    </a>`;
 }
 
 function renderActions(session, zoom) {
@@ -96,6 +119,12 @@ function getZoomLinks(session, zoom) {
   return slots
     .map((slot) => ({ label: `Zoom ${slot}`, url: zoom.slots?.[slot] }))
     .filter((entry) => entry.url);
+}
+
+function compareSessionDates(left, right) {
+  const leftTime = left.date ? Date.parse(`${left.date}T12:00:00Z`) : Number.MAX_SAFE_INTEGER;
+  const rightTime = right.date ? Date.parse(`${right.date}T12:00:00Z`) : Number.MAX_SAFE_INTEGER;
+  return leftTime - rightTime || String(left.title || "").localeCompare(String(right.title || ""));
 }
 
 function linkButton(url, label, external) {

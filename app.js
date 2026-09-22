@@ -91,7 +91,6 @@
         links.push(linkButton(session.recordingUrl, "Recording"));
       }
 
-      links.push(detailLinkButton(session));
       links.push(copyLinkButton(session));
       return '<div class="session-actions">' + links.join("") + '</div>';
     }
@@ -110,17 +109,12 @@
       links.push(linkButton(session.recordingUrl, "Recording"));
     }
 
-    links.push(detailLinkButton(session));
     links.push(copyLinkButton(session));
     return '<div class="session-actions">' + links.join("") + '</div>';
   }
 
   function linkButton(url, label) {
     return '<a class="action-link compact" href="' + escapeAttr(url) + '" target="_blank" rel="noopener">' + escapeHtml(label) + '</a>';
-  }
-
-  function detailLinkButton(session) {
-    return '<a class="action-link compact" href="' + escapeAttr(sessionDetailUrl(session)) + '">Details</a>';
   }
 
   function copyLinkButton(session) {
