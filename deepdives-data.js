@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-09-15T16:08:41.101Z",
+  "updatedAt": "2026-09-22T20:51:52.087Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -9,6 +9,7 @@ window.DEEPDIVES_DATA = {
   },
   "sessions": [
     {
+      "id": "12794818485",
       "title": "CantonBFT",
       "speaker": "Tom Tantillo",
       "role": "",
@@ -23,6 +24,7 @@ window.DEEPDIVES_DATA = {
       "valid": true
     },
     {
+      "id": "12979234585",
       "title": "Daml Package Manager (DPM)",
       "speaker": "Sammy Abed",
       "role": "",
@@ -37,6 +39,7 @@ window.DEEPDIVES_DATA = {
       "valid": true
     },
     {
+      "id": "12553947301",
       "title": "Logical Synchronizer Upgrades",
       "speaker": "Rafael Guglielmetti",
       "role": "",
@@ -51,6 +54,7 @@ window.DEEPDIVES_DATA = {
       "valid": true
     },
     {
+      "id": "12553884475",
       "title": "Splice Automation",
       "speaker": "Moritz Kiefer",
       "role": "Senior Staff Engineer",
@@ -65,6 +69,7 @@ window.DEEPDIVES_DATA = {
       "valid": true
     },
     {
+      "id": "12548683774",
       "title": "dApp API & SDK",
       "speaker": "Marc Juchli",
       "role": "",
@@ -79,6 +84,7 @@ window.DEEPDIVES_DATA = {
       "valid": true
     },
     {
+      "id": "12553920340",
       "title": "Wallet Gateway",
       "speaker": "Alex Matson",
       "role": "",
@@ -93,6 +99,7 @@ window.DEEPDIVES_DATA = {
       "valid": true
     },
     {
+      "id": "12553950822",
       "title": "How to build a dApp",
       "speaker": "Fayi Femi-Balogun",
       "role": "",
@@ -107,6 +114,7 @@ window.DEEPDIVES_DATA = {
       "valid": true
     },
     {
+      "id": "12553916779",
       "title": "Traffic Based App Rewards",
       "speaker": "Robert Autenrieth, Tim Emiola, Simon Meier, Divam Narula",
       "role": "",
@@ -121,6 +129,7 @@ window.DEEPDIVES_DATA = {
       "valid": true
     },
     {
+      "id": "12554013346",
       "title": "How to use wallet SDK",
       "speaker": "Rukmini Basu",
       "role": "",
@@ -135,6 +144,7 @@ window.DEEPDIVES_DATA = {
       "valid": true
     },
     {
+      "id": "12553943992",
       "title": "Contract Reassignments for Multi-Sync Support",
       "speaker": "Rafael Guglielmetti, Meriam Lachkar",
       "role": "",
