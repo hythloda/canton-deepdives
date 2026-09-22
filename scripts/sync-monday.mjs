@@ -1,4 +1,5 @@
 import { readFile, writeFile } from "node:fs/promises";
+import { generateSessionPages } from "./generate-session-pages.mjs";
 
 const BOARD_ID = process.env.MONDAY_BOARD_ID || "18422413776";
 const MONDAY_API_TOKEN = process.env.MONDAY_API_TOKEN;
@@ -95,6 +96,8 @@ const nextComparable = {
   },
   sessions,
 };
+
+await generateSessionPages(nextComparable);
 
 if (JSON.stringify(comparableData(current)) === JSON.stringify(nextComparable)) {
   console.log(`No public data changes for Monday board ${BOARD_ID}`);

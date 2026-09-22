@@ -6,6 +6,7 @@
   const empty = document.getElementById("empty-state");
   const search = document.getElementById("search");
   const tabs = document.querySelectorAll("[data-view]");
+  const canonicalOrigin = "https://canton-deepdives.canton.foundation";
   let activeView = "coming";
 
   tabs.forEach((tab) => {
@@ -50,6 +51,7 @@
 
   function renderSession(session) {
     const permalinkId = sessionPermalinkId(session);
+    const detailUrl = sessionDetailUrl(session);
 
     return (
       '<article class="session-card" id="' + escapeAttr(permalinkId) + '">' +
@@ -59,10 +61,10 @@
         '</div>' +
         '<div class="session-main">' +
           '<div class="meta">' + renderMeta(session) + '</div>' +
-          '<h2>' + escapeHtml(session.title) + '</h2>' +
+          '<h2><a class="session-title-link" href="' + escapeAttr(detailUrl) + '">' + escapeHtml(session.title) + '</a></h2>' +
           '<p class="speaker-line">' + escapeHtml(session.speaker || "Speaker TBD") + '</p>' +
           '<p class="company">' + escapeHtml([session.role, session.company].filter(Boolean).join(", ")) + '</p>' +
-          renderLinks(session, permalinkId) +
+          renderLinks(session) +
         '</div>' +
       '</article>'
     );
@@ -76,7 +78,7 @@
     ].join("");
   }
 
-  function renderLinks(session, permalinkId) {
+  function renderLinks(session) {
     const isPast = getTiming(session) === "past";
     const links = [];
 
@@ -89,7 +91,8 @@
         links.push(linkButton(session.recordingUrl, "Recording"));
       }
 
-      links.push(copyLinkButton(permalinkId));
+      links.push(detailLinkButton(session));
+      links.push(copyLinkButton(session));
       return '<div class="session-actions">' + links.join("") + '</div>';
     }
 
@@ -107,7 +110,8 @@
       links.push(linkButton(session.recordingUrl, "Recording"));
     }
 
-    links.push(copyLinkButton(permalinkId));
+    links.push(detailLinkButton(session));
+    links.push(copyLinkButton(session));
     return '<div class="session-actions">' + links.join("") + '</div>';
   }
 
@@ -115,22 +119,25 @@
     return '<a class="action-link compact" href="' + escapeAttr(url) + '" target="_blank" rel="noopener">' + escapeHtml(label) + '</a>';
   }
 
-  function copyLinkButton(permalinkId) {
-    return '<button class="action-link compact copy-link" type="button" data-copy-link="' + escapeAttr(permalinkId) + '">Copy link</button>';
+  function detailLinkButton(session) {
+    return '<a class="action-link compact" href="' + escapeAttr(sessionDetailUrl(session)) + '">Details</a>';
+  }
+
+  function copyLinkButton(session) {
+    return '<button class="action-link compact copy-link" type="button" data-copy-link="' + escapeAttr(canonicalSessionUrl(session)) + '">Copy link</button>';
   }
 
   async function handleListClick(event) {
     const button = event.target.closest("[data-copy-link]");
     if (!button) return;
 
-    const url = new URL(window.location.href);
-    url.hash = button.dataset.copyLink;
+    const url = button.dataset.copyLink;
 
     try {
-      await navigator.clipboard.writeText(url.href);
+      await navigator.clipboard.writeText(url);
     } catch {
       const input = document.createElement("textarea");
-      input.value = url.href;
+      input.value = url;
       input.setAttribute("readonly", "");
       input.style.position = "fixed";
       input.style.opacity = "0";
@@ -186,6 +193,16 @@
   function sessionPermalinkId(session) {
     if (session.id) return "deep-dive-" + slugify(session.id);
     return legacyPermalinkId(session);
+  }
+
+  function sessionDetailUrl(session) {
+    if (!session.id) return "#" + sessionPermalinkId(session);
+    return "deep-dives/" + encodeURIComponent(session.id) + "/";
+  }
+
+  function canonicalSessionUrl(session) {
+    if (!session.id) return canonicalOrigin + "/#" + sessionPermalinkId(session);
+    return canonicalOrigin + "/deep-dives/" + encodeURIComponent(session.id) + "/";
   }
 
   function sessionPermalinkIds(session) {

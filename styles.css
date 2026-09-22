@@ -325,6 +325,15 @@ p {
   line-height: 1.18;
 }
 
+.session-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.session-title-link:hover {
+  color: var(--accent);
+}
+
 .meta {
   display: flex;
   flex-wrap: wrap;
@@ -355,6 +364,72 @@ p {
   padding: 28px 0;
 }
 
+.session-detail-page {
+  display: grid;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.detail-page {
+  padding-block: 20px;
+}
+
+.detail-back {
+  display: inline-flex;
+  margin-bottom: 28px;
+  color: var(--cool);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.detail-back:hover {
+  color: var(--accent);
+}
+
+.detail-head {
+  max-width: 980px;
+  margin-bottom: 36px;
+}
+
+.detail-head h1 {
+  font-size: clamp(42px, 7vw, 82px);
+  line-height: 1.02;
+}
+
+.detail-session {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.detail-date {
+  width: 110px;
+  min-height: 110px;
+}
+
+.detail-date strong {
+  font-size: 34px;
+}
+
+.detail-label {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.detail-speaker {
+  margin-top: 6px;
+  color: var(--text);
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1.15;
+}
+
 @media (max-width: 900px) {
   .meeting-panel,
   .intro-panel {
@@ -382,6 +457,10 @@ p {
   }
 
   .session-card {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-session {
     grid-template-columns: 1fr;
   }
 }
