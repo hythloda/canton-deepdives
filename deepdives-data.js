@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-09-22T20:51:52.087Z",
+  "updatedAt": "2026-09-29T15:52:18.802Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -8,21 +8,6 @@ window.DEEPDIVES_DATA = {
     }
   },
   "sessions": [
-    {
-      "id": "12794818485",
-      "title": "CantonBFT",
-      "speaker": "Tom Tantillo",
-      "role": "",
-      "company": "Digital Asset",
-      "group": "Coming Soon",
-      "date": "2026-09-29",
-      "day": "Tuesday",
-      "time": "10am ET",
-      "zoomSlot": "10am ET",
-      "presentationUrl": "",
-      "recordingUrl": "",
-      "valid": true
-    },
     {
       "id": "12979234585",
       "title": "Daml Package Manager (DPM)",
@@ -156,6 +141,21 @@ window.DEEPDIVES_DATA = {
       "zoomSlot": "10am ET",
       "presentationUrl": "https://drive.google.com/file/d/1xE4JurllVtOs7v-RHrvG_xZD9zzS9Qyf/view?usp=drive_link",
       "recordingUrl": "https://us06web.zoom.us/rec/share/TGX-M66Z7j5pTppoKy8Tuu6B8DMVN634wfby7nM9185eQyPFx20F9ho8qYB1k0wE.lKkuHrmYU-cIdO7g",
+      "valid": true
+    },
+    {
+      "id": "12794818485",
+      "title": "CantonBFT",
+      "speaker": "Tom Tantillo",
+      "role": "",
+      "company": "Digital Asset",
+      "group": "Past",
+      "date": "2026-09-29",
+      "day": "Tuesday",
+      "time": "10am ET",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "",
+      "recordingUrl": "",
       "valid": true
     }
   ]
