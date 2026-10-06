@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-09-29T17:49:05.803Z",
+  "updatedAt": "2026-10-06T15:38:55.731Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -8,21 +8,6 @@ window.DEEPDIVES_DATA = {
     }
   },
   "sessions": [
-    {
-      "id": "12979234585",
-      "title": "Daml Package Manager (DPM)",
-      "speaker": "Sammy Abed",
-      "role": "",
-      "company": "Digital Asset",
-      "group": "Coming Soon",
-      "date": "2026-10-06",
-      "day": "Tuesday",
-      "time": "10am ET",
-      "zoomSlot": "10am ET",
-      "presentationUrl": "",
-      "recordingUrl": "",
-      "valid": true
-    },
     {
       "id": "12553947301",
       "title": "Logical Synchronizer Upgrades",
@@ -156,6 +141,21 @@ window.DEEPDIVES_DATA = {
       "zoomSlot": "10am ET",
       "presentationUrl": "",
       "recordingUrl": "https://us06web.zoom.us/rec/play/-_iOI0-i4q5FPZOfAxHJI4QzN5UD1OrNVqejc-cK3wQhoUhjfn7P-f-Yh2_kuEa80CJZqd4COJDemVKJ.ZfrBqVcENW3pmhlC?autoplay=true&startTime=1790690085000",
+      "valid": true
+    },
+    {
+      "id": "12979234585",
+      "title": "Daml Package Manager (DPM)",
+      "speaker": "Sammy Abed",
+      "role": "",
+      "company": "Digital Asset",
+      "group": "Past",
+      "date": "2026-10-06",
+      "day": "Tuesday",
+      "time": "10am ET",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "",
+      "recordingUrl": "https://zoom.us/rec/play/0CqfROpP2Gp9OFArTXS9l8WyFoIotic6MqHKJezLFNmvk5kU_nyPZiqUBxSm4QdICODDA1mv42NqdCKq.NuSCme-gc5m5H8iX?autoplay=true&startTime=1791295036000",
       "valid": true
     }
   ]
