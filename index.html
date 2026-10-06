@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Canton Deep Dives</title>
   <meta name="description" content="Canton Network deep-dive calendar and session index.">
-  <link rel="stylesheet" href="styles.css?v=session-nav-20260922">
+  <link rel="stylesheet" href="styles.css?v=local-20261005">
 </head>
 <body>
   <main class="page">
@@ -21,8 +21,8 @@
         <p class="section-kicker">Meeting Date/Time/Zoom</p>
         <h2>Every Tuesday</h2>
         <div class="meeting-actions">
-          <a class="action-link primary" href="https://us06web.zoom.us/j/86997555431?pwd=mOSAiK6394EZmaRHuQ0FP14odE56rv.1" target="_blank" rel="noopener">Join 6am ET Zoom</a>
-          <a class="action-link primary" href="https://us06web.zoom.us/j/82843970226?pwd=u8lW5dsbqa1YlmRrrYv9PJmV5nuYlD.1" target="_blank" rel="noopener">Join 10am ET Zoom</a>
+          <a class="action-link primary" href="https://us06web.zoom.us/j/86997555431?pwd=mOSAiK6394EZmaRHuQ0FP14odE56rv.1" target="_blank" rel="noopener">Join <span data-local-recurring-slot="6am ET">6am ET</span> Zoom</a>
+          <a class="action-link primary" href="https://us06web.zoom.us/j/82843970226?pwd=u8lW5dsbqa1YlmRrrYv9PJmV5nuYlD.1" target="_blank" rel="noopener">Join <span data-local-recurring-slot="10am ET">10am ET</span> Zoom</a>
           <a class="action-link" href="https://forum.canton.network/" target="_blank" rel="noopener">Discussion forum</a>
         </div>
       </div>
@@ -50,7 +50,7 @@
       <div class="intro-copy">
         <p>The Canton Network Deep Dive series is a public meeting place for technical presentations about the canton-network open source projects. Its scope is all current and confirmed upcoming repositories under <a href="https://github.com/canton-network" target="_blank" rel="noopener">github.com/canton-network</a>.</p>
         <p>Each week has a single presentation from one or more contributors. Presentations are expected to run 30-45 minutes, followed by a general AMA session for the core contributors. Questions should be scoped to the canton-network OSS repositories and will be moderated each week.</p>
-        <p>Two weekly time slots are reserved for a globally distributed contributor network: 6am US ET and 10am US ET. The default is 10am ET, but speakers may request the 6am ET slot instead. All presentations will be recorded and made public.</p>
+        <p>Two weekly time slots are reserved for a globally distributed contributor network: <span data-local-recurring-slot="6am ET">6am US ET</span> and <span data-local-recurring-slot="10am ET">10am US ET</span>. The default is the later slot, but speakers may request the earlier slot instead. All presentations will be recorded and made public.</p>
       </div>
     </section>
 
@@ -74,6 +74,7 @@
   </main>
 
   <script src="deepdives-data.js?v=monday-202609291749"></script>
-  <script src="app.js?v=monday-202609291749"></script>
+  <script src="local-time.js?v=local-20261005"></script>
+  <script src="app.js?v=local-20261005"></script>
 </body>
 </html>

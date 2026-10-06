@@ -6,6 +6,7 @@
   const empty = document.getElementById("empty-state");
   const search = document.getElementById("search");
   const tabs = document.querySelectorAll("[data-view]");
+  const localTime = window.DeepDiveTime;
   const canonicalOrigin = "https://canton-deepdives.canton.foundation";
   let activeView = "coming";
 
@@ -73,7 +74,7 @@
   function renderMeta(session) {
     return [
       session.group ? pill(session.group) : "",
-      pill(weekdayLabel(session) + (session.time ? " / " + session.time : "")),
+      pill(sessionScheduleLabel(session)),
       pill(session.company || "Company TBD")
     ].join("");
   }
@@ -221,31 +222,47 @@
   }
 
   function dateLabel(session) {
-    if (session.date) return formatDate(session.date, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+    const value = localTime?.formatDateTime(session.date, primarySlot(session));
+    if (value) return value;
     return "Tuesday date to be announced";
   }
 
   function dateMonth(session) {
-    if (session.date) return formatDate(session.date, { month: "short" }).toUpperCase();
+    const instant = localTime?.toInstant(session.date, primarySlot(session));
+    if (instant) return new Intl.DateTimeFormat(undefined, { month: "short" }).format(instant).toUpperCase();
     return "Tue";
   }
 
   function dateDay(session) {
-    if (session.date) return formatDate(session.date, { day: "2-digit" });
+    const instant = localTime?.toInstant(session.date, primarySlot(session));
+    if (instant) return new Intl.DateTimeFormat(undefined, { day: "2-digit" }).format(instant);
     return "TBD";
   }
 
-  function weekdayLabel(session) {
-    if (session.date) return formatDate(session.date, { weekday: "long" });
-    return session.day || "Tuesday";
+  function sessionScheduleLabel(session) {
+    const labels = sessionSlots(session)
+      .map((slot) => localTime?.formatDateTime(session.date, slot))
+      .filter(Boolean);
+    return labels.join(" / ") || [session.day, session.time].filter(Boolean).join(" / ") || "Time TBD";
   }
 
   function getZoomLinks(session) {
-    const slots = session.zoomSlots || inferZoomSlots(session);
+    const slots = sessionSlots(session);
 
     return slots
-      .map((slot) => ({ label: "Zoom " + slot, url: zoom.slots && zoom.slots[slot] }))
+      .map((slot) => ({
+        label: "Zoom " + (localTime?.formatTime(session.date, slot) || slot),
+        url: zoom.slots && zoom.slots[slot]
+      }))
       .filter((entry) => entry.url);
+  }
+
+  function sessionSlots(session) {
+    return session.zoomSlots || inferZoomSlots(session);
+  }
+
+  function primarySlot(session) {
+    return sessionSlots(session)[0] || session.time || "10am ET";
   }
 
   function inferZoomSlots(session) {
@@ -268,12 +285,6 @@
     const leftTime = left.date ? new Date(left.date + "T12:00:00").getTime() : Number.MAX_SAFE_INTEGER;
     const rightTime = right.date ? new Date(right.date + "T12:00:00").getTime() : Number.MAX_SAFE_INTEGER;
     return activeView === "past" ? rightTime - leftTime : leftTime - rightTime;
-  }
-
-  function formatDate(value, options) {
-    const date = new Date(value + "T12:00:00");
-    if (Number.isNaN(date.getTime())) return "TBD";
-    return date.toLocaleDateString("en-US", options);
   }
 
   function searchableText(session) {

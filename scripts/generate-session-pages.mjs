@@ -30,6 +30,7 @@ function renderSessionPage(session, zoom, previousSession, nextSession) {
   const description = [date, presenter, affiliation].filter(Boolean).join(" - ");
   const canonicalUrl = `${CANONICAL_ORIGIN}/deep-dives/${safeId(session.id)}/`;
   const actions = renderActions(session, zoom);
+  const primarySlot = getSessionSlots(session)[0] || "10am ET";
 
   return `<!doctype html>
 <html lang="en">
@@ -45,7 +46,7 @@ function renderSessionPage(session, zoom, previousSession, nextSession) {
   <meta property="og:url" content="${escapeAttr(canonicalUrl)}">
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="${escapeAttr(canonicalUrl)}">
-  <link rel="stylesheet" href="../../styles.css?v=session-nav-20260922">
+  <link rel="stylesheet" href="../../styles.css?v=local-20261005">
 </head>
 <body class="session-detail-page">
   <main class="page detail-page">
@@ -56,14 +57,14 @@ function renderSessionPage(session, zoom, previousSession, nextSession) {
     </header>
 
     <article class="detail-session">
-      <div class="date-icon detail-date" aria-label="${escapeAttr(date || "Date to be announced")}">
-        <span>${escapeHtml(dateMonth(session.date))}</span>
-        <strong>${escapeHtml(dateDay(session.date))}</strong>
+      <div class="date-icon detail-date" aria-label="${escapeAttr(date || "Date to be announced")}" data-local-aria-date="${escapeAttr(session.date)}" data-local-aria-slot="${escapeAttr(primarySlot)}">
+        <span data-local-date="${escapeAttr(session.date)}" data-local-slot="${escapeAttr(primarySlot)}" data-local-format="month">${escapeHtml(dateMonth(session.date))}</span>
+        <strong data-local-date="${escapeAttr(session.date)}" data-local-slot="${escapeAttr(primarySlot)}" data-local-format="day">${escapeHtml(dateDay(session.date))}</strong>
       </div>
       <div class="session-main">
         <div class="meta">
           ${pill(session.group || "Deep Dive")}
-          ${pill([date, session.time].filter(Boolean).join(" / "))}
+          ${pill(renderLocalSchedule(session, date), true)}
           ${session.company ? pill(session.company) : ""}
         </div>
         <p class="detail-label">Presented by</p>
@@ -75,6 +76,7 @@ function renderSessionPage(session, zoom, previousSession, nextSession) {
 
     ${renderSessionNavigation(previousSession, nextSession)}
   </main>
+  <script src="../../local-time.js?v=local-20261005"></script>
 </body>
 </html>
 `;
@@ -104,7 +106,7 @@ function renderActions(session, zoom) {
 
   if (!isPast) {
     for (const entry of getZoomLinks(session, zoom)) {
-      links.push(linkButton(entry.url, entry.label, true));
+      links.push(zoomLinkButton(entry.url, session.date, entry.slot));
     }
   }
 
@@ -114,10 +116,24 @@ function renderActions(session, zoom) {
 }
 
 function getZoomLinks(session, zoom) {
-  const slots = session.zoomSlots || [session.zoomSlot || "10am ET"];
+  const slots = getSessionSlots(session);
   return slots
-    .map((slot) => ({ label: `Zoom ${slot}`, url: zoom.slots?.[slot] }))
+    .map((slot) => ({ slot, url: zoom.slots?.[slot] }))
     .filter((entry) => entry.url);
+}
+
+function getSessionSlots(session) {
+  return session.zoomSlots || [session.zoomSlot || "10am ET"];
+}
+
+function renderLocalSchedule(session, fallbackDate) {
+  return getSessionSlots(session)
+    .map((slot) => `<time data-local-date="${escapeAttr(session.date)}" data-local-slot="${escapeAttr(slot)}">${escapeHtml([fallbackDate, slot].filter(Boolean).join(" / "))}</time>`)
+    .join(" / ");
+}
+
+function zoomLinkButton(url, date, slot) {
+  return `<a class="action-link compact" href="${escapeAttr(url)}" target="_blank" rel="noopener">Zoom <span data-local-date="${escapeAttr(date)}" data-local-slot="${escapeAttr(slot)}" data-local-format="time">${escapeHtml(slot)}</span></a>`;
 }
 
 function compareSessionDates(left, right) {
@@ -131,8 +147,8 @@ function linkButton(url, label, external) {
   return `<a class="action-link compact" href="${escapeAttr(url)}"${target}>${escapeHtml(label)}</a>`;
 }
 
-function pill(value) {
-  return `<span class="pill">${escapeHtml(value)}</span>`;
+function pill(value, containsMarkup = false) {
+  return `<span class="pill">${containsMarkup ? value : escapeHtml(value)}</span>`;
 }
 
 function formatDate(value) {
