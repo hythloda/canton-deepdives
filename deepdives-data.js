@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-10-06T15:38:55.731Z",
+  "updatedAt": "2026-10-07T14:16:09.948Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -16,6 +16,21 @@ window.DEEPDIVES_DATA = {
       "company": "Digital Asset",
       "group": "Coming Soon",
       "date": "2026-10-13",
+      "day": "Tuesday",
+      "time": "10am ET",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "",
+      "recordingUrl": "",
+      "valid": true
+    },
+    {
+      "id": "13181358478",
+      "title": "New ACS Commitment Processor in Canton 3.6",
+      "speaker": "Andreas Lochbihler",
+      "role": "",
+      "company": "Digital Asset",
+      "group": "Coming Soon",
+      "date": "2026-10-20",
       "day": "Tuesday",
       "time": "10am ET",
       "zoomSlot": "10am ET",
