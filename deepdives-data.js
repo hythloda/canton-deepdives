@@ -1,5 +1,5 @@
 window.DEEPDIVES_DATA = {
-  "updatedAt": "2026-10-07T14:16:09.948Z",
+  "updatedAt": "2026-10-13T15:40:37.494Z",
   "sourceUrl": "https://view.monday.com/18422413776-807b632953d4194954ade5ac45ec89e7?r=use1&is_sharable_link=true",
   "zoom": {
     "slots": {
@@ -8,21 +8,6 @@ window.DEEPDIVES_DATA = {
     }
   },
   "sessions": [
-    {
-      "id": "12553947301",
-      "title": "Logical Synchronizer Upgrades",
-      "speaker": "Rafael Guglielmetti",
-      "role": "",
-      "company": "Digital Asset",
-      "group": "Coming Soon",
-      "date": "2026-10-13",
-      "day": "Tuesday",
-      "time": "10am ET",
-      "zoomSlot": "10am ET",
-      "presentationUrl": "",
-      "recordingUrl": "",
-      "valid": true
-    },
     {
       "id": "13181358478",
       "title": "New ACS Commitment Processor in Canton 3.6",
@@ -171,6 +156,21 @@ window.DEEPDIVES_DATA = {
       "zoomSlot": "10am ET",
       "presentationUrl": "",
       "recordingUrl": "https://zoom.us/rec/play/0CqfROpP2Gp9OFArTXS9l8WyFoIotic6MqHKJezLFNmvk5kU_nyPZiqUBxSm4QdICODDA1mv42NqdCKq.NuSCme-gc5m5H8iX?autoplay=true&startTime=1791295036000",
+      "valid": true
+    },
+    {
+      "id": "12553947301",
+      "title": "Logical Synchronizer Upgrades",
+      "speaker": "Rafael Guglielmetti",
+      "role": "",
+      "company": "Digital Asset",
+      "group": "Past",
+      "date": "2026-10-13",
+      "day": "Tuesday",
+      "time": "10am ET",
+      "zoomSlot": "10am ET",
+      "presentationUrl": "https://drive.google.com/file/d/1gcsYLeIen9Cpq_e3cb9xjYhEAXInqySw/view?usp=drive_link",
+      "recordingUrl": "",
       "valid": true
     }
   ]
