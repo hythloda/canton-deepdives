@@ -76,6 +76,26 @@ p {
   line-height: 1.58;
 }
 
+.series-notice {
+  margin-bottom: 18px;
+  padding: 24px;
+  border: 1px solid var(--accent);
+  border-left-width: 4px;
+  border-radius: 8px;
+  background: rgba(236, 229, 127, 0.08);
+}
+
+.series-notice h2 {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: clamp(24px, 4vw, 32px);
+  line-height: 1.2;
+}
+
+.series-notice p {
+  color: var(--text);
+}
+
 .meeting-panel,
 .intro-panel,
 .session-card {
